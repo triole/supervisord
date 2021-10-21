@@ -27,7 +27,7 @@ jobs:
                 env:
                     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                     GO_BIN_PATH: /home/runner/.local/bin/go
-                    # SOURCE_FOLDER: /home/runner
+                    # SOURCE_FOLDER: ${GITHUB_WORKSPACE}
                     TARGET_FOLDER: build
                 run: curl -sL https://raw.githubusercontent.com/triole/ghwfe/master/sh/go_build.sh | bash
             -
@@ -35,7 +35,7 @@ jobs:
                 env:
                     BASE_DIR: build
                     VERSION_COMMAND: date +%y.%m.%d
-                run: curl -sL https://raw.githubusercontent.com/triole/ghwfe/master/sh/compress_builds.sh | bash
+                run: curl -sL https://raw.githubusercontent.com/triole/ghwfe/master/sh/gzip_builds.sh | bash
             -
                 name: Upload release binaries
                 uses: alexellis/upload-assets@0.3.0
