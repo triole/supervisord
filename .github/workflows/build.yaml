@@ -36,7 +36,8 @@ jobs:
                     # APP_NAME: binary_name
                     SOURCE_FOLDER: .
                     # TARGET_FOLDER: build
-                    BUILD_ARGS: -tags release
+                    # PRE_BUILD_COMMANDS: "ls;go generate"
+                    # BUILD_ARGS: -tags release
                 run: curl -sL https://raw.githubusercontent.com/triole/ghwfe/master/sh/go_build.sh | bash
             -
                 name: Gzip assets
