@@ -36,6 +36,7 @@ jobs:
                     # APP_NAME: binary_name
                     SOURCE_FOLDER: .
                     # TARGET_FOLDER: build
+                    BUILD_ARGS: -tags release
                 run: curl -sL https://raw.githubusercontent.com/triole/ghwfe/master/sh/go_build.sh | bash
             -
                 name: Gzip assets
@@ -45,6 +46,7 @@ jobs:
                     VERSION_COMMAND: date +%y.%m.%d
                 run: curl -sL https://raw.githubusercontent.com/triole/ghwfe/master/sh/gzip_builds.sh | bash
             -
+                if: ${{ !env.ACT }}
                 name: Upload release binaries
                 uses: alexellis/upload-assets@0.3.0
                 env:
